@@ -1452,25 +1452,15 @@ const POWERS_ENHANCEMENTS = [
 ["Vontade (ampliação)","+10%"],
 ["Alcance Transmundial","+50% ou +100%"],
 ["Afeta a Si Mesmo","+50%"],
-["Ataque Múltiplo","+20%"],
-["Biblioteca de Vozes","+50%"],
-["Ciente","+50%"],
-["Consciente","+50%"],
-["Constritivo","+75%"],
-["Curar Atribulação","+50%"],
 ["Desejo","+100%"],
 ["Desvantagem Anulada","+10%"],
 ["Dinâmico","+40%"],
 ["Estendida","+30%"],
 ["Insensível à Luz","+20%"],
-["Inspirado","+100%"],
-["Interplanar","+100%"],
 ["Itens Grandes","+50%"],
 ["Mão Única","+20%"],
 ["Mãos Livres","+20%"],
-["Queda Suave","+20%"],
 ["Recuperação de Fadiga (ampliação)","+100%"],
-["Remota","+50%"],
 ["Sapiência","+40%"],
 ["Sem Interceptação","+50%"],
 ["Submerso","+20%"],
@@ -1566,7 +1556,8 @@ const TRAIT_SPECIFIC_MODS = {
       ["Confiável (+1 no teste de IQ)","+5%"],
       ["Salto em Dobra (por Saltador associado)","+10%"],
       ["Capacidade de Carga Mental (baseada em Vontade, não ST)","+20%"],
-      ["Capacidade de Carga Telecinética (baseada em Telecinese)","+20%"]
+      ["Capacidade de Carga Telecinética (baseada em Telecinese)","+20%"],
+      ["Rastreamento (rastreia resíduos deixados por outros teleportadores até sua origem)","+20%"]
     ],
     lim:[
       ["Despreparado","-30%"],
@@ -1625,7 +1616,9 @@ const TRAIT_SPECIFIC_MODS = {
       ["Inquebrável (só escapa vencendo a ST em disputa)","+40%"],
       ["Só Sofre Dano de Um Tipo (queimadura, corrosão, contusão ou corte)","+30%"],
       ["Só Sofre Dano de Dois Tipos","+20%"],
-      ["Só Sofre Dano de Três Tipos","+10%"]
+      ["Só Sofre Dano de Três Tipos","+10%"],
+      ["Constritivo (ataca a vítima a cada turno como Ataque Constritivo com ST da Retenção)","+75%"],
+      ["Sufocante (bloqueia a respiração da vítima; ela sufoca se ficar sem fôlego)","+75%"]
     ],
     lim:[
       ["Ambientais (precisa de uma condição/objeto do ambiente)","-20%"],
@@ -1641,14 +1634,22 @@ const TRAIT_SPECIFIC_MODS = {
       ["Onisalto (viaja pelo tempo e dimensões com um só teste — aplicar às duas vantagens)","+10%"],
       ["Rastreamento (viaja até a época/dimensão de origem de um artefato)","+20%"],
       ["Salto em Dobra (combina com a vantagem Dobra — aplicar às duas)","+10%"],
-      ["Túnel (cria um portal que dura 3d segundos)","+40%"]
+      ["Túnel (cria um portal que dura 3d segundos)","+40%"],
+      ["Confiável (por +1 no teste de IQ para saltar, até +2)","+5%"],
+      ["Interplanar (alcança planos superiores/reinos divinos, além de mundos paralelos ou espirituais)","+100%"],
+      ["Interplanar (só alcança os planos superiores)","+0%"]
     ],
     lim:[
       ["À Deriva (não retorna ao mesmo local, variação de até 15 km)","-15%"],
       ["Atordoamento (fica mentalmente atordoado após saltar)","-10%"],
       ["Incapaz de Seguir (não pode pegar carona com outro Saltador)","-20%"],
       ["Nu (não pode levar nada, sempre chega sem roupas)","-30%"],
-      ["Requer Sinal (depende de uma rede de navegação tipo GPS)","-20%"]
+      ["Requer Sinal (depende de uma rede de navegação tipo GPS)","-20%"],
+      ["Franja (deixa um contorno/brilho tênue ao usar; pode ser visto/atacado com -6)","-10%"],
+      ["Acesso Limitado (só salta entre dois mundos específicos, p/ Saltador Mundo/Espírito)","-0% ou -20%"],
+      ["Projeção (mente viaja sem o corpo, que fica inconsciente; p/ Saltador Tempo/Mundo)","-50%"],
+      ["Projeção (idem, mas pode usar magias/mentais/Imprecações para afetar o destino)","-0%"],
+      ["Projeção (idem, mas também envia um corpo físico duplicado, deixando o original inconsciente)","-25%"]
     ]
   },
   "Sentido de Monitoramento": {
@@ -1663,11 +1664,15 @@ const TRAIT_SPECIFIC_MODS = {
     lim:[["Somente Mira (só para apontar armas, não detecta por si só)","-40%"]]
   },
   "Sentido de Vibração": {
-    enh:[["Universal (funciona tanto na água quanto no ar/terra)","+50%"]],
+    enh:[
+      ["Universal (funciona tanto na água quanto no ar/terra)","+50%"],
+      ["Sentido de Percepção (funciona sem contato com ar/água — ex.: retroalimentação psicocinética; concede todos os benefícios de Universal também)","+100%"],
+      ["Mira (trava a mira em algo já detectado, como um telêmetro; +3 para acertar com ataque à distância apontado)","+20%"]
+    ],
     lim:[]
   },
   "Sorte": {
-    enh:[],
+    enh:[["Desejo (manipula conscientemente qualquer rolagem feita em sua presença, refazendo-a duas vezes e escolhendo o resultado)","+100%"]],
     lim:[
       ["Ativa (precisa declarar antes de rolar os dados, não pode desfazer depois)","-40%"],
       ["Defensiva (só para jogadas de defesa, testes de resistência ou HT)","-20%"],
@@ -1679,7 +1684,10 @@ const TRAIT_SPECIFIC_MODS = {
     lim:[["Aparência Adquirida","-50%"]]
   },
   "Abafador de Mana": {
-    enh:[["Ativada ou Desativada à Vontade","+100%"]],
+    enh:[
+      ["Ativada ou Desativada à Vontade","+100%"],
+      ["Discriminatório (poupa o usuário e aliados na área, prejudicando só os inimigos; inclui Ativada/Desativada à Vontade; substitui Área Seletiva)","+150%"]
+    ],
     lim:[]
   },
   "Abascanto": {
@@ -1695,11 +1703,12 @@ const TRAIT_SPECIFIC_MODS = {
     ]
   },
   "Aderência": {
-    enh:[],
+    enh:[["Atração (adere com qualquer parte do corpo; pode andar em pé numa parede ou pendurar-se de cabeça)","+25%"]],
     lim:[
       ["Específica (materiais comuns)","-40%"],
       ["Específica (materiais incomuns)","-60%"],
-      ["Específica (materiais absurdos)","-80%"]
+      ["Específica (materiais absurdos)","-80%"],
+      ["Exige Baixa Gravidade (não funciona acima de certa gravidade; -5% por 0,1G abaixo de 1G, até -50% a 0G)","Variável"]
     ]
   },
   "Aliados": {
@@ -1716,7 +1725,10 @@ const TRAIT_SPECIFIC_MODS = {
     ]
   },
   "Ampliador de Mana": {
-    enh:[["Ativada ou Desativada à Vontade","+100%"]],
+    enh:[
+      ["Ativada ou Desativada à Vontade","+100%"],
+      ["Discriminatório (concede a melhor intensidade de mana a si e aliados na área, e a pior aos inimigos; inclui Ativada/Desativada à Vontade; substitui Área Seletiva)","+150%"]
+    ],
     lim:[]
   },
   "Aptidão Mágica": {
@@ -1754,7 +1766,11 @@ const TRAIT_SPECIFIC_MODS = {
     lim:[["Desconexa (sem cérebro de reserva)","-20%"]]
   },
   "Camaleão": {
-    enh:[["Estendida (sentido adicional além da visão, por sentido)","+20%"]],
+    enh:[
+      ["Estendida (sentido adicional além da visão, por sentido)","+20%"],
+      ["Controlável (escolhe conscientemente o padrão; +2/nível para sinalizar ou distrair; exclui Sempre Ativo)","+20%"],
+      ["Dinâmico (adapta-se instantaneamente; +2/nível de Furtividade em movimento)","+40%"]
+    ],
     lim:[["Sempre Ativo (não pode desativar)","-10%"]]
   },
   "Carga Útil": {
@@ -1762,7 +1778,12 @@ const TRAIT_SPECIFIC_MODS = {
     lim:[["Exposta (não pode ser ocultada nem protegida)","-50%"]]
   },
   "Clarisenciência": {
-    enh:[],
+    enh:[
+      ["Consciente (permanece ciente do próprio corpo; não pode priorizar sentidos remotos e naturais ao mesmo tempo)","+50%"],
+      ["Projeção (a consciência sai do corpo, que fica inconsciente; ver quadro Projeção)","+0%"],
+      ["Projeção (com capacidade de agir sobre o mundo material via magias/mentais/Imprecações)","+140%"],
+      ["Segunda Natureza (ação livre; muda de ponto de vista rapidamente)","+70%"]
+    ],
     lim:[
       ["Clariaudiência (só a audição)","-30%"],
       ["Clariosmia (só o olfato)","-60%"],
@@ -1783,7 +1804,7 @@ const TRAIT_SPECIFIC_MODS = {
     ]
   },
   "Controle do Metabolismo": {
-    enh:[],
+    enh:[["Domínio (soma o nível a qualquer teste de HT enquanto consciente; ajusta metabolismo p/ tensões extremas)","+40%"]],
     lim:[["Hibernação (só entra em transe, sem bônus em HT)","-60%"]]
   },
   "Controle Térmico": {
@@ -1801,18 +1822,27 @@ const TRAIT_SPECIFIC_MODS = {
       ["Xenocura (Toda Vida Terrena)","+40%"],
       ["Xenocura (Toda Vida Baseada em Carbono)","+60%"],
       ["Xenocura (Qualquer Coisa Viva)","+80%"],
-      ["Xenocura (Qualquer Coisa Animada, incl. mortos-vivos)","+100%"]
+      ["Xenocura (Qualquer Coisa Animada, incl. mortos-vivos)","+100%"],
+      ["Afeta a Si Mesmo (também pode curar a si mesmo, se consciente)","+50%"],
+      ["Curar Atribulação (neutraliza Atribulações contínuas e Efeitos Colaterais/Sintomas parecidos; custo em PF = 2x a penalidade, mín. 1 PF)","Variável"]
     ],
     lim:[
       ["Cura Psíquica (parte do poder psíquico Cura Psíquica)","-10%"],
       ["Somente Doenças","-40%"],
       ["Somente Ferimentos","-20%"],
-      ["Somente sua Raça","-40%"]
+      ["Somente sua Raça","-40%"],
+      ["Somente Atribulação (só cura condições causadas por Atribulação/Efeito Colateral/Sintoma; não cura lesões ou doenças comuns)","-40%"],
+      ["Limitada (limite de 2 PF por uso)","-25%"],
+      ["Limitada (limite de 4 PF por uso)","-20%"],
+      ["Limitada (limite de 6 PF por uso)","-15%"],
+      ["Limitada (limite de 8 PF por uso)","-10%"],
+      ["Limitada (limite de 10 PF por uso)","-5%"],
+      ["Empática (o curador sofre as lesões/doenças/Atribulações removidas; incompatível com Limitada)","-50%"]
     ]
   },
   "Ataque Adicional": {
     enh:[["Ataque Múltiplo (vários golpes com o mesmo membro)","+20%"]],
-    lim:[]
+    lim:[["Perícia Única (só se aplica a uma perícia de combate específica)","-20%"]]
   },
   "Ultrapoder": {
     enh:[],
@@ -1855,7 +1885,10 @@ const TRAIT_SPECIFIC_MODS = {
     ]
   },
   "Terror": {
-    enh:[],
+    enh:[
+      ["Ativa (ataque mental direto contra um alvo específico a até 10m, com Disputa Rápida de Vontade; alvo usa sua própria margem de vitória se ganhar)","+0%"],
+      ["Presença (afeta quem estiver a até 10m mesmo sem ver/ouvir o personagem; Efeito de Área dobra o raio)","+25%"]
+    ],
     lim:[["Sempre Ativo (não pode desativar para convívio social)","-20%"]]
   },
   "Vida Extra": {
@@ -1867,14 +1900,23 @@ const TRAIT_SPECIFIC_MODS = {
     ]
   },
   "Visão 360 graus": {
-    enh:[],
+    enh:[
+      ["Panóptica 1 (vê ao redor sem virar a cabeça; ainda precisa de olhos e de luz)","+20%"],
+      ["Panóptica 2 (não precisa de olhos nem de luz; funciona cego/vendado)","+60%"]
+    ],
     lim:[["Alvo Fácil (olhos podem ser atacados com penalidade de só -6)","-20%"]]
   },
   "Visão Hiperespectral": {
     enh:[
       ["Banda Alta Estendida (visualiza raios X e gama)","+30%"],
-      ["Banda Baixa Estendida (visualiza micro-ondas, radares e rádio)","+30%"],
-      ["Visão em Cores (distingue cores mesmo no escuro)","+20%"]
+      ["Banda Baixa Estendida (visualiza micro-ondas, radares e rádio)","+30%"]
+    ],
+    lim:[]
+  },
+  "Visão no Escuro": {
+    enh:[
+      ["Visão em Cores (distingue cores mesmo no escuro)","+20%"],
+      ["Hipersensorial (perde só -2 por sentido ausente entre audição/olfato/tato; cego só se perder os 4; limitado ao arco humano sem Visão Periférica/360°)","+40%"]
     ],
     lim:[]
   },
@@ -1901,7 +1943,9 @@ const TRAIT_SPECIFIC_MODS = {
       ["Mais Leve que o Ar (afetado pelo vento)","-10%"],
       ["Planar (só ganha altitude com corrida e salto)","-45%"],
       ["Planar Controlado (ganha altitude com correntes de ar)","-50%"],
-      ["Somente Voo Espacial (exige Voo Espacial ou Voo Espacial Newtoniano)","-75%"]
+      ["Somente Voo Espacial (exige Voo Espacial ou Voo Espacial Newtoniano)","-75%"],
+      ["Planetário (faz força contra o campo gravitacional/magnético de um planeta; inútil sem um; incompatível com Voo Espacial)","-5%"],
+      ["Exige Superfície (faz força contra superfícies; só se sustenta no ar por 5 segundos após se afastar de uma)","-20%"]
     ]
   },
   "Aversão": {
@@ -1917,13 +1961,20 @@ const TRAIT_SPECIFIC_MODS = {
     lim:[
       ["Limitado a Estradas (Solo)","-50%"],
       ["Newtoniana (Espaço — delta-v)","-50%"],
-      ["Redutor de Manuseio (por -1, até -5)","-5%"]
+      ["Redutor de Manuseio (por -1, até -5)","-5%"],
+      ["Total (não limita o personagem a meio Deslocamento ao virar; vale menos que o modificador Total geral)","-20%"]
     ]
+  },
+  "Rastreamento Ampliado": {
+    enh:[["Alvos Múltiplos (rastreia vários alvos mesmo com uma arma só; benefícios de Apontar/Avaliar contra qualquer um deles)","+20%"]],
+    lim:[]
   },
   "Detectar": {
     enh:[
       ["Detecção de Sinais (rádio/radar/laser)","+0%"],
-      ["Precisão (revela também a distância)","+100%"]
+      ["Precisão (revela também a distância)","+100%"],
+      ["Analisador (revela forma, pureza, subclasse exata; incompatível com Vaga)","+100%"],
+      ["Consulta (dobra o bônus para analisar/reconhecer, de +4 para +8; memorização automática)","+50%"]
     ],
     lim:[["Vaga (só presença/ausência)","-50%"]]
   },
@@ -1931,16 +1982,30 @@ const TRAIT_SPECIFIC_MODS = {
     enh:[
       ["Equipamento Duplicado","+100%"],
       ["Ferimento Único (outras não ficam atordoadas)","+20%"],
-      ["Multiplicação (mais cópias fora de combate, via Tabela de Super-Habilidades)","+20%"]
+      ["Multiplicação (mais cópias fora de combate, via Tabela de Super-Habilidades)","+20%"],
+      ["Construto (Duplicatas são projeções materiais; inclui Ferimento Único; incompatível com Digital/Recursos Compartilhados)","+60%"]
     ],
     lim:[
       ["Digital (cópias de software, requer Mente Digital)","-60%"],
-      ["Recursos Compartilhados (PF/PV divididos)","-40%"]
+      ["Recursos Compartilhados (PF/PV divididos)","-40%"],
+      ["Sequencial (Duplicatas numeradas em cadeia; a morte de uma elimina as posteriores)","-40%"]
     ]
   },
   "Empatia com Espíritos": {
-    enh:[],
+    enh:[["Remota (funciona à distância, por meios eletrônicos ou sobrenaturais)","+50%"]],
     lim:[["Especializada (uma classe de espíritos)","-50%"]]
+  },
+  "Empatia": {
+    enh:[["Remota (funciona à distância, por meios eletrônicos, sem precisar de encontro pessoal)","+50%"]],
+    lim:[]
+  },
+  "Empatia com Animais": {
+    enh:[],
+    lim:[["Especializada (uma classe/família/espécie de animais, como em Falar com Animais)","Variável (-40% a -80%)"]]
+  },
+  "Empatia com Plantas": {
+    enh:[],
+    lim:[["Especializada (um tipo específico de planta)","Variável (-40% a -80%)"]]
   },
   "Encolhimento": {
     enh:[
@@ -2045,7 +2110,10 @@ const TRAIT_SPECIFIC_MODS = {
     ],
     lim:[
       ["Normalmente Ativa (materializa com esforço, 1 PF/s)","-40%"],
-      ["Permanentemente Ativo (nunca se materializa)","-50%"]
+      ["Permanentemente Ativo (nunca se materializa)","-50%"],
+      ["Sem Deslocamento Vertical (não pode desconsiderar a gravidade; sem peso, mas preso ao chão)","-10%"],
+      ["Barulhento (não é silencioso; faz ruído de passos e respiração)","-5%"],
+      ["Projeção (o corpo fica inconsciente/vulnerável; a consciência sai em forma insubstancial; incompatível com usar magias/mentais sem Afeta a Matéria)","-50%"]
     ]
   },
   "Interposição": {
@@ -2139,7 +2207,7 @@ const TRAIT_SPECIFIC_MODS = {
     lim:[["PES (parte do poder psíquico PES)","-10%"]]
   },
   "Dependência": {
-    enh:[["Envelhecimento (envelhece 2 anos por PV perdido, mesmo com Idade Imutável)","+30%"]],
+    enh:[["Envelhecimento (envelhece 2 anos por PV perdido sem o item)","+30%"]],
     lim:[]
   },
   "Dieta Restrita": {
@@ -2148,26 +2216,139 @@ const TRAIT_SPECIFIC_MODS = {
   },
   "Disopia": {
     enh:[],
-    lim:[["Mitigador (óculos/lentes em NT5+/NT7+ corrigem completamente)","-60%"]]
+    lim:[["Mitigador (óculos/lentes disponíveis no NT da campanha corrigem o problema)","-60%"]]
   },
   "Fraqueza": {
     enh:[],
     lim:[
       ["Somente Fadiga (drena PF em vez de PV)","-50%"],
-      ["Variável (barreiras comuns reduzem à metade; fontes intensas dobram)","-40%"]
+      ["Variável (barreiras comuns reduzem a taxa de dano à metade; fontes intensas dobram)","-40%"]
     ]
   },
   "Fúria": {
-    enh:[["Fúria em Combate (enfurece em qualquer combate, ferido ou não)","+50%"]],
+    enh:[["Fúria em Combate (enfurece-se em qualquer combate, ferido ou não)","+50%"]],
     lim:[]
   },
   "Noturno": {
-    enh:[["Paralisia Permanente (transforma em pedra ou efeito incapacitante permanente ao sol)","+100%"]],
+    enh:[["Paralisia Permanente (vira pedra ou fica incapacitado sob a luz solar)","+100%"]],
     lim:[]
   },
   "Vulnerabilidade": {
     enh:[],
-    lim:[["Somente Fadiga (vulnerável a ataque que drena PF em vez de PV)","-50%"]]
+    lim:[["Somente Fadiga (o ataque drena PF em vez de PV)","-50%"]]
+  },
+  "Atribulação": {
+    enh:[
+      ["Ataque Cardíaco (incapacitante; morre em minutos sem tratamento)","+300%"],
+      ["Atordoamento (acompanha Vantagem/Penalidade em Atributo/Desvantagem/Vantagem Anulada)","+10%"],
+      ["Coma (inconsciente; pode morrer em dias sem tratamento)","+250%"],
+      ["Cumulativo (efeitos contínuos se acumulam; junto com Penalidade em Atributo, Vantagem, Desvantagem ou Vantagem Anulada com níveis)","+400%"],
+      ["Desvantagem (concede desvantagem temporária; +1%/ponto da desvantagem)","Variável"],
+      ["Incapacitação — Agonia","+100%"],
+      ["Incapacitação — Alucinação","+50%"],
+      ["Incapacitação — Ânsia","+50%"],
+      ["Incapacitação — Ataque de Epilepsia","+100%"],
+      ["Incapacitação — Asfixia","+100%"],
+      ["Incapacitação — Êxtase","+100%"],
+      ["Incapacitação — Inconsciência","+200%"],
+      ["Incapacitação — Paralisia","+150%"],
+      ["Incapacitação — Sono","+150%"],
+      ["Incapacitação — Torpor","+50%"],
+      ["Incapacitação — Vômito","+50%"],
+      ["Irritante — Embriagado","+10%"],
+      ["Irritante — Tosse","+20%"],
+      ["Irritante — Bêbado","+20%"],
+      ["Irritante — Dor Moderada","+20%"],
+      ["Irritante — Euforia","+30%"],
+      ["Irritante — Nauseado","+30%"],
+      ["Irritante — Dor Severa","+40%"],
+      ["Irritante — Dor Terrível","+60%"],
+      ["Penalidade em Atributo (ST ou HT, por -1)","+5%"],
+      ["Penalidade em Atributo (DX ou IQ, por -1)","+10%"],
+      ["Vantagem (concede vantagem temporária; +10%/ponto da vantagem)","Variável"],
+      ["Vantagem Anulada (anula 1 nível de uma vantagem; +1%/ponto da vantagem)","Variável"]
+    ],
+    lim:[]
+  },
+  "Canalização": {
+    enh:[["Consciente (permanece consciente e pode agir enquanto os espíritos falam por ele)","+50%"]],
+    lim:[["Especializada (só canaliza uma classe específica de espíritos: anjos, demônios, elementais, fadas, fantasmas...)","-50%"]]
+  },
+  "Queda de Gato": {
+    enh:[["Queda Suave (funciona mesmo amarrado ou caindo de cabeça)","+20%"]],
+    lim:[["Paraquedas (asas/dobras naturais; abre devagar, inútil em quedas curtas ou sem espaço)","-30%"]]
+  },
+  "Ataque Constritivo": {
+    enh:[["Engolfar (imobiliza a vítima por completo, sem as mãos; ela não tem defesas ativas enquanto engolfada)","+60%"]],
+    lim:[]
+  },
+  "Bom Senso": {
+    enh:[["Ciente (pode perguntar ao Mestre o que seria inteligente fazer, com teste secreto de IQ)","+50%"]],
+    lim:[]
+  },
+  "Tolerância a Ferimentos": {
+    enh:[
+      ["Infiltração (só p/ Difuso: escorre por frestas e barreiras porosas, mas não muda de forma nem estica)","+40%"],
+      ["Enxame (só p/ Difuso: espalha-se como enxame; só ferido por área/cone/explosão, proporcional à área atingida)","+80%"],
+      ["Enxame (idem, mas ainda capaz de afetar o mundo material enquanto espalhado)","+160%"],
+      ["Cabeça Destacável (decapitação sem lesão; cabeça com DX/HT do personagem)","+15%"],
+      ["Fixação Instantânea (basta 1 segundo segurando a parte na posição para refixá-la)","+50%"]
+    ],
+    lim:[
+      ["Sem Fixação (partes cortadas continuam animadas, mas não podem ser refixadas; incompatível com Fixação Instantânea)","-60%"],
+      ["Somente Fixação (partes ficam imóveis ao serem cortadas, sem lutar; incompatível com Sem Fixação)","-50%"]
+    ]
+  },
+  "Intuição": {
+    enh:[["Inspirado (qualquer sucesso revela a melhor escolha disponível; falha nunca sugere algo ruim)","+100%"]],
+    lim:[]
+  },
+  "Médium": {
+    enh:[
+      ["Manifestação (facilita a espíritos num raio de 1m se tornarem visíveis; grátis para quem tem a metacaracterística Espírito)","+100%"],
+      ["Universal (comunica-se com qualquer espírito percebido, mesmo sem idioma em comum)","+50%"],
+      ["Visual (vê os espíritos enquanto se comunica com eles, mesmo que normalmente invisíveis)","+50%"]
+    ],
+    lim:[["Especializada (uma classe específica de espíritos: anjos, demônios, elementais, fadas, fantasmas...)","-50%"]]
+  },
+  "Arremedo": {
+    enh:[["Biblioteca de Vozes (nunca esquece um som/voz que já tenha imitado com sucesso)","+50%"]],
+    lim:[]
+  },
+  "Títere": {
+    enh:[],
+    lim:[["Controle de Emoções (só manipula sentimentos, não ações; exclusivo com Somente Condicionamento e Sugestão)","-50%"]]
+  },
+  "Fé Verdadeira": {
+    enh:[["Espantar (Disputa Rápida de Vontade para forçar seres repelidos a fugir; empate ou vitória os afasta pela margem de vitória em metros)","+65%"]],
+    lim:[]
+  },
+  "Escavação": {
+    enh:[["Mãos Livres (escava com parte especial do corpo/raio, mãos ficam livres para segurar objetos)","+20%"]],
+    lim:[]
+  },
+  "Digestão Universal": {
+    enh:[["Devorador de Matéria (come qualquer coisa, mesmo corrosiva/tóxica/radioativa, até uma granada ativa, sem se ferir)","+300%"]],
+    lim:[]
+  },
+  "Visualização": {
+    enh:[
+      ["Bênção (melhora chances de sucesso de si mesmo e de outros)","+100%"],
+      ["Bênção (só ajuda outros, não a si mesmo)","+0%"],
+      ["Maldição (piora chances de sucesso de um alvo visto/tocado por 1 minuto)","+100%"]
+    ],
+    lim:[]
+  },
+  "Caminhar no Ar": {
+    enh:[],
+    lim:[
+      ["Mais Leve que o Ar (vento o move; 1m/s a cada 8km/h de vento)","-10%"],
+      ["Altura Máxima (teto de 9m)","-10%"],
+      ["Altura Máxima (teto de 3m)","-20%"],
+      ["Altura Máxima (teto de 1,5m)","-25%"],
+      ["Planetário (faz força contra o campo gravitacional de um planeta; inútil sem um)","-5%"],
+      ["Somente Vertical (só sobe em linha reta, incapaz de se mover lateralmente)","-25%"]
+    ]
   }
 };
 
